@@ -44,7 +44,10 @@ describe('ScanPage Component', () => {
     
     expect(screen.getByText('Unicode Scanner')).toBeInTheDocument()
     expect(screen.getByPlaceholderText('Enter text to analyze...')).toBeInTheDocument()
-    expect(screen.getByText('Load Example')).toBeInTheDocument()
+    expect(screen.getByText('Normal Text')).toBeInTheDocument()
+    expect(screen.getByText('Tail Mode')).toBeInTheDocument()
+    expect(screen.getByText('Interleaved')).toBeInTheDocument()
+    expect(screen.getByText('ZWJ-Aware')).toBeInTheDocument()
   })
 
   test('handles text input', () => {
@@ -134,7 +137,7 @@ describe('ScanPage Component', () => {
   test('handles example button', () => {
     render(<ScanPage />)
     
-    const exampleButton = screen.getByText('Load Example')
+    const exampleButton = screen.getByText('Normal Text')
     fireEvent.click(exampleButton)
     
     const textInput = screen.getByPlaceholderText('Enter text to analyze...')

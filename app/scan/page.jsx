@@ -37,8 +37,30 @@ export default function ScanPage() {
     setShowDetails(false)
   }
 
-  const handleExample = () => {
+  const handleNormalExample = () => {
     setInputText('Hello 👋 world! This is a test with some emoji 🎉 and special characters.')
+  }
+
+  const handleEncodedExample = () => {
+    // This is a real encoded message with hidden data
+    setInputText('Hello world! This is a normal looking message that actually contains hidden steganographic data encoded using Unicode variation selectors.︎︎︎︎︎︎︎︎︎️︎️︎️︎︎︎️️︎️︎︎︎︎️️︎️︎︎️︎️️️︎︎️️︎︎️︎︎︎︎︎︎️️︎️︎︎️︎️️️︎︎️️︎︎️︎︎︎︎︎︎️️︎︎︎︎️︎︎️︎︎︎︎︎︎️️️︎︎️️︎️️︎︎️︎️︎️️︎︎︎️️︎️️️︎︎️︎︎️️︎︎️︎️︎️️️︎️︎︎︎︎️︎︎︎︎︎︎️️︎️️︎️︎️️︎︎️︎️︎️️️︎︎️️︎️️️︎︎️️︎️️︎︎︎︎️︎️️︎︎️️️︎️️︎︎️︎️')
+  }
+
+  const handleTailExample = () => {
+    // Tail mode - all variation selectors at the end
+    setInputText('Hello world! This is a normal looking message that actually contains hidden steganographic data encoded using Unicode variation selectors.︎︎︎︎︎︎︎︎︎️︎️︎️︎︎︎️️︎️︎︎︎︎️️︎️︎︎️︎️️️︎︎️️︎︎️︎︎︎︎︎︎️️︎️︎︎️︎️️️︎︎️️︎︎️︎︎︎︎︎︎️️︎︎︎︎️︎︎️︎︎︎︎︎︎️️️︎︎️️︎️️︎︎️︎️︎️️︎︎︎️️︎️️️︎︎️︎︎️️︎︎️︎️︎️️️︎️︎︎︎︎️︎︎︎︎︎︎️️︎️️︎️︎️️︎︎️︎️︎️️️︎️︎️︎️️️︎️︎️️︎️️︎︎︎︎️︎️️︎︎️️️︎️️︎︎️︎️')
+  }
+
+  const handleInterleavedExample = () => {
+    // Interleaved mode - variation selectors between codepoints (after every character including spaces)
+    setInputText('H︎e︎l︎l︎o︎ ︎w︎o︎r︎l︎d︎!︎ ︎T︎h︎i︎s︎ ︎i︎s︎ ︎a︎ ︎t︎e︎s︎t︎ ︎m︎e︎s︎s︎a︎g︎e︎ ︎w︎i︎t︎h︎ ︎h︎i︎d︎d︎e︎n︎ ︎d︎a︎t︎a︎.')
+  }
+
+  const handleZWJExample = () => {
+    // ZWJ-aware mode - variation selectors between grapheme clusters (preserves emoji as single units)
+    // This example uses complex emoji sequences to show the difference
+    // In ZWJ-aware mode, 👨‍👩‍👧‍👦 is treated as ONE grapheme cluster, not individual codepoints
+    setInputText('H︎e︎l︎l︎o︎ ︎👨‍👩‍👧‍👦︎ ︎t︎h︎i︎s︎ ︎i︎s︎ ︎a︎ ︎t︎e︎s︎t︎ ︎w︎i︎t︎h︎ ︎👩‍💻︎ ︎c︎o︎m︎p︎l︎e︎x︎ ︎e︎m︎o︎j︎i︎ ︎👨‍👩‍👧‍👦︎ ︎s︎e︎q︎u︎e︎n︎c︎e︎s︎.')
   }
 
   return (
@@ -74,9 +96,18 @@ export default function ScanPage() {
                 onChange={(e) => setInputText(e.target.value)}
                 className="min-h-[200px]"
               />
-              <div className="mt-2 flex space-x-2">
-                <Button onClick={handleExample} variant="outline" size="sm">
-                  Load Example
+              <div className="mt-2 flex flex-wrap gap-2">
+                <Button onClick={handleNormalExample} variant="outline" size="sm">
+                  Normal Text
+                </Button>
+                <Button onClick={handleTailExample} variant="outline" size="sm">
+                  Tail Mode
+                </Button>
+                <Button onClick={handleInterleavedExample} variant="outline" size="sm">
+                  Interleaved
+                </Button>
+                <Button onClick={handleZWJExample} variant="outline" size="sm">
+                  ZWJ-Aware
                 </Button>
                 <Button onClick={handleClear} variant="outline" size="sm">
                   Clear
@@ -179,6 +210,71 @@ export default function ScanPage() {
                         <span>Estimated bytes:</span>
                         <span className="font-mono">{analysis.steganographyScan.estimatedBytes}</span>
                       </div>
+                      
+                      {/* Mode Detection */}
+                      <div className="mt-2 p-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded text-sm">
+                        <div className="font-medium mb-1">🔍 Embedding Mode Detection:</div>
+                        <div className="text-xs space-y-1">
+                          {(() => {
+                            const vsPositions = []
+                            for (let i = 0; i < inputText.length; i++) {
+                              if (inputText[i] === '\uFE0E' || inputText[i] === '\uFE0F') {
+                                vsPositions.push(i)
+                              }
+                            }
+                            
+                            if (vsPositions.length === 0) return null
+                            
+                            const lastCharIndex = inputText.length - 1
+                            const allAtEnd = vsPositions.every(pos => pos > lastCharIndex - vsPositions.length)
+                            
+                            if (allAtEnd) {
+                              return <div>✅ <strong>Tail Mode</strong> - All variation selectors at the end</div>
+                            } else {
+                              // Try to distinguish between Interleaved and ZWJ-aware
+                              const codepointCount = Array.from(inputText).length
+                              const graphemeCount = analysis.graphemeClusters.length
+                              
+                              // Calculate the ratio of VS to original characters
+                              const originalTextLength = inputText.length - vsPositions.length
+                              const vsRatio = vsPositions.length / originalTextLength
+                              
+                              let modeHint = "Interleaved/ZWJ-aware Mode"
+                              
+                              // More sophisticated detection based on VS pattern analysis
+                              // Check if VS are distributed more evenly (Interleaved) vs clustered (ZWJ-aware)
+                              const vsGaps = []
+                              for (let i = 1; i < vsPositions.length; i++) {
+                                vsGaps.push(vsPositions[i] - vsPositions[i-1])
+                              }
+                              const avgGap = vsGaps.length > 0 ? vsGaps.reduce((a, b) => a + b, 0) / vsGaps.length : 0
+                              const gapVariance = vsGaps.length > 0 ? vsGaps.reduce((sum, gap) => sum + Math.pow(gap - avgGap, 2), 0) / vsGaps.length : 0
+                              
+                              // Interleaved mode has more consistent gaps (VS after every character)
+                              // ZWJ-aware mode has more variable gaps (VS after grapheme clusters)
+                              if (gapVariance < 2 && vsRatio > 0.7) {
+                                modeHint = "Likely Interleaved Mode (consistent VS pattern)"
+                              } else if (codepointCount !== graphemeCount && gapVariance > 1) {
+                                modeHint = "Likely ZWJ-aware Mode (variable VS pattern with complex Unicode)"
+                              } else if (vsRatio > 0.8) {
+                                modeHint = "Likely Interleaved Mode (high VS density)"
+                              } else {
+                                modeHint = "Likely ZWJ-aware Mode (preserves grapheme clusters)"
+                              }
+                              
+                              return (
+                                <div>
+                                  ✅ <strong>{modeHint}</strong> - Variation selectors distributed throughout
+                                  <div className="text-xs text-muted-foreground mt-1">
+                                    Codepoints: {codepointCount}, Grapheme clusters: {graphemeCount}, VS ratio: {(vsRatio * 100).toFixed(1)}%, Gap variance: {gapVariance.toFixed(2)}
+                                  </div>
+                                </div>
+                              )
+                            }
+                          })()}
+                        </div>
+                      </div>
+                      
                       <div className="mt-2 p-2 bg-green-100 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded text-sm">
                         ✅ This text likely contains hidden data. Try decoding it!
                       </div>

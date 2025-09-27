@@ -134,7 +134,10 @@ describe('Accessibility Tests', () => {
       render(<ScanPage />)
       
       expect(screen.getByRole('button', { name: /clear/i })).toBeInTheDocument()
-      expect(screen.getByRole('button', { name: /load example/i })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: /normal text/i })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: /tail mode/i })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: /interleaved/i })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: /zwj-aware/i })).toBeInTheDocument()
     })
   })
 

@@ -40,9 +40,9 @@ export default function EncodePage() {
   }
   
   const estimatedBits = Math.ceil(estimatedBytes * 8) + 8 // +8 for header
-  // For non-TAIL modes, we need to compare bits to bits, not characters to bits
-  const exceedsCapacity = capacity !== Infinity && estimatedBits > capacity * 8
-  
+  // For non-TAIL modes, capacity is in characters, but we can only embed 1 bit per character
+  // So the actual bit capacity is just the character count (not * 8)
+  const exceedsCapacity = capacity !== Infinity && estimatedBits > capacity
 
   const handleEncode = useCallback(async () => {
     if (!message.trim()) {
@@ -58,7 +58,7 @@ export default function EncodePage() {
       return
     }
     if (exceedsCapacity) {
-      setError(`Message too long for ${mode} mode. Maximum ${capacity} characters (${capacity * 8} bits), need ${estimatedBits} bits.`)
+      setError(`Message too long for ${mode} mode. Maximum ${capacity} bits (${capacity} characters), need ${estimatedBits} bits.`)
       return
     }
 
@@ -168,9 +168,9 @@ export default function EncodePage() {
                             'This should not happen with Tail mode'
                           ) : (
                             <>
-                              You need at least {Math.ceil(estimatedBits / 8)} characters in cover text.
+                              You need at least {estimatedBits} characters in cover text.
                               {capacity !== Infinity && (
-                                <> Current: {capacity} characters. Add {Math.ceil(estimatedBits / 8) - capacity} more characters.</>
+                                <> Current: {capacity} characters. Add {estimatedBits - capacity} more characters.</>
                               )}
                             </>
                           )}
@@ -321,7 +321,7 @@ export default function EncodePage() {
                 <div className="font-medium mb-2">💡 How to fix capacity issues:</div>
                 <div className="space-y-1 text-xs">
                   <div>• <strong>Use Tail mode:</strong> Unlimited capacity for any message</div>
-                  <div>• <strong>Longer cover text:</strong> Add {Math.ceil(estimatedBits / 8) - capacity} more characters</div>
+                  <div>• <strong>Longer cover text:</strong> Add {estimatedBits - capacity} more characters</div>
                   <div>• <strong>Shorter message:</strong> Reduce message to {capacity} characters or less</div>
                   <div>• <strong>Enable compression:</strong> May reduce message size</div>
                 </div>
