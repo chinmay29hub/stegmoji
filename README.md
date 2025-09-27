@@ -22,7 +22,7 @@ A modern web application for Unicode steganography - hiding secret messages insi
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/chinmay29hub/stegmoji.git
    cd stegmoji
    ```
 
@@ -117,6 +117,7 @@ These characters are invisible and don't affect text rendering.
    - Go to [vercel.com](https://vercel.com)
    - Import your GitHub repository
    - Deploy with default settings (no environment variables needed)
+   - Your app will be available at: `https://your-project-name.vercel.app`
 
 3. **Custom Domain** (optional)
    - Add your domain in Vercel dashboard
@@ -161,6 +162,8 @@ stegmoji/
 - **grapheme-splitter**: Unicode grapheme cluster splitting
 - **pako**: DEFLATE compression library
 - **Web Crypto API**: Browser-native encryption
+- **Jest**: Testing framework
+- **ESLint**: Code linting
 
 ### Browser Compatibility
 
@@ -203,6 +206,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 This tool is for educational and legitimate purposes only. Users are responsible for complying with applicable laws and regulations. The authors are not responsible for any misuse of this software.
 
+## Performance
+
+This application is optimized for performance:
+- **No obfuscation overhead** - Clean, fast JavaScript
+- **Optimized builds** - Source maps disabled in production
+- **Efficient algorithms** - Fast steganography operations
+- **Modern browser APIs** - Native Web Crypto and compression
+
 ## Support
 
 For questions, issues, or contributions:
@@ -213,3 +224,5 @@ For questions, issues, or contributions:
 ---
 
 **Stegmoji** - Hide messages in plain sight with Unicode steganography 🔒
+
+*Live Demo: [https://chinmay29hub-stegmoji.vercel.app](https://chinmay29hub-stegmoji.vercel.app)*

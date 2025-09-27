@@ -101,6 +101,40 @@ export default function AboutPage() {
 
         <Card>
           <CardHeader>
+            <CardTitle>Usage Examples</CardTitle>
+            <CardDescription>
+              Practical applications for Unicode steganography
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <h4 className="font-semibold mb-2 text-purple-600">Educational Use</h4>
+              <p className="text-sm text-muted-foreground">
+                Perfect for learning about steganography, Unicode, and data hiding techniques. 
+                Great for computer science courses and cybersecurity education.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-2 text-purple-600">Creative Applications</h4>
+              <p className="text-sm text-muted-foreground">
+                Hide Easter eggs in blog posts, add metadata to social media posts, 
+                or create interactive puzzles and games with hidden messages.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-2 text-purple-600">Privacy Testing</h4>
+              <p className="text-sm text-muted-foreground">
+                Test how different platforms handle invisible characters, 
+                understand text normalization, and explore Unicode behavior.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
             <CardTitle>Limitations & Considerations</CardTitle>
             <CardDescription>
               Important things to know about Unicode steganography
@@ -172,46 +206,50 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div>
+            {/* <div>
               <h4 className="font-semibold mb-2 text-green-600">Open Source</h4>
               <p className="text-sm text-muted-foreground">
                 The source code is available for inspection, allowing you to verify 
                 that no malicious code is present.
               </p>
-            </div>
+            </div> */}
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Technical Implementation</CardTitle>
+            <CardTitle>Performance & Compatibility</CardTitle>
             <CardDescription>
-              Built with modern web technologies
+              Optimized for speed and broad browser support
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
-              <div>
-                <h4 className="font-semibold mb-2">Frontend</h4>
-                <ul className="space-y-1">
-                  <li>• Next.js 14 with App Router</li>
-                  <li>• React 18 with hooks</li>
-                  <li>• Tailwind CSS for styling</li>
-                  <li>• Radix UI components</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Libraries</h4>
-                <ul className="space-y-1">
-                  <li>• grapheme-splitter for Unicode</li>
-                  <li>• pako for DEFLATE compression</li>
-                  <li>• Web Crypto API for encryption</li>
-                  <li>• Modern JavaScript (ES6+)</li>
-                </ul>
-              </div>
+          <CardContent className="space-y-4">
+            <div>
+              <h4 className="font-semibold mb-2 text-blue-600">Fast Performance</h4>
+              <p className="text-sm text-muted-foreground">
+                Clean, optimized code without obfuscation overhead ensures fast encoding, 
+                decoding, and analysis operations. Built for speed and efficiency.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-2 text-blue-600">Browser Support</h4>
+              <p className="text-sm text-muted-foreground">
+                Works on all modern browsers including Chrome, Firefox, Safari, and Edge. 
+                Requires Web Crypto API support for encryption features.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-2 text-blue-600">Mobile Friendly</h4>
+              <p className="text-sm text-muted-foreground">
+                Responsive design works perfectly on desktop, tablet, and mobile devices. 
+                Touch-friendly interface for all screen sizes.
+              </p>
             </div>
           </CardContent>
         </Card>
+
 
         <div className="flex justify-center space-x-4">
           <Link href="/encode">
