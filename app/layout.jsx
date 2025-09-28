@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <head>
         <SEOHead 
           structuredData={getMainStructuredData()}
-          canonical={`https://stegmoji.com`}
+          canonical={`https://chinmay29hub-stegmoji.vercel.app`}
         />
         <script
           dangerouslySetInnerHTML={{
