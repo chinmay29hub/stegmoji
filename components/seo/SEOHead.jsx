@@ -5,7 +5,7 @@ export default function SEOHead({
   description = "Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with encryption, compression, and multiple embedding modes.",
   keywords = "steganography, unicode steganography, hide messages, invisible characters, text steganography, secret messages, encryption, privacy, security",
   canonical = "",
-  ogImage = "https://chinmay29hub-stegmoji.vercel.app/og-image.png",
+  ogImage = "/og-image.png",
   structuredData = null
 }) {
   const fullTitle = title.includes('Stegmoji') ? title : `${title} | Stegmoji`
@@ -31,11 +31,13 @@ export default function SEOHead({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={fullDescription} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      <meta property="og:image:width" content="2400" />
+      <meta property="og:image:height" content="1262" />
       <meta property="og:image:alt" content={`${fullTitle} - ${fullDescription}`} />
+      <meta property="og:image:type" content="image/png" />
       <meta property="og:site_name" content="Stegmoji" />
       <meta property="og:locale" content="en_US" />
+      <meta property="og:updated_time" content={new Date().toISOString()} />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -46,6 +48,15 @@ export default function SEOHead({
       <meta name="twitter:image:alt" content={`${fullTitle} - ${fullDescription}`} />
       <meta name="twitter:creator" content="@chinmay29hub" />
       <meta name="twitter:site" content="@chinmay29hub" />
+      
+      {/* Additional Social Media Meta Tags */}
+      <meta property="article:author" content="chinmay29hub" />
+      <meta property="article:publisher" content="https://chinmay29hub-stegmoji.vercel.app" />
+      <meta name="linkedin:owner" content="chinmay29hub" />
+      
+      {/* WhatsApp and Telegram specific */}
+      <meta property="og:image:secure_url" content={ogImage} />
+      <meta name="telegram:channel" content="@chinmay29hub" />
       
       {/* Additional SEO Meta Tags */}
       <meta name="application-name" content="Stegmoji" />
