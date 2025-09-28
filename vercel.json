@@ -3,6 +3,7 @@
   "buildCommand": "pnpm build",
   "devCommand": "pnpm dev",
   "installCommand": "pnpm install",
+  "ignoreCommand": "bash -c 'if git diff --quiet HEAD~1 HEAD -- \"app/\" \"components/\" \"lib/\" \"public/\" \"package.json\" \"next.config.js\" \"tailwind.config.js\" \"postcss.config.js\" \"vercel.json\" \".eslintrc.cjs\" \".prettierrc\" \"*.css\" \"*.js\" \"*.jsx\" \"*.ts\" \"*.tsx\"; then echo \"No important files changed, skipping deployment\"; exit 1; else echo \"Important files changed, proceeding with deployment\"; exit 0; fi'",
   "functions": {
     "app/sitemap.xml/route.js": {
       "maxDuration": 10
