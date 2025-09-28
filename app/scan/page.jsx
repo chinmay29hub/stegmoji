@@ -7,7 +7,6 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { analyzeInvisibleChars, getCodepointBreakdown, getGraphemeClusters, checkNormalization } from '@/lib/unicode'
 import { scanText } from '@/lib/steganography'
-import SEOHead from '@/components/seo/SEOHead'
 
 export default function ScanPage() {
   const [inputText, setInputText] = useState('')
@@ -65,12 +64,6 @@ export default function ScanPage() {
 
   return (
     <>
-      <SEOHead 
-        title="Unicode Scanner - Analyze Text for Hidden Characters and Steganography"
-        description="Analyze text for invisible Unicode characters, steganography, and hidden data. Free online Unicode text analyzer with detailed character breakdown and normalization analysis."
-        keywords="unicode scanner, text analyzer, invisible characters, unicode analysis, steganography detection, hidden characters, text forensics"
-        canonical="https://chinmay29hub-stegmoji.vercel.app/scan"
-      />
       <div className="max-w-6xl mx-auto space-y-6">
         <div>
           <h1 className="text-3xl font-bold">Unicode Scanner</h1>

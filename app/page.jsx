@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import SEOHead from '@/components/seo/SEOHead'
 import { getHowToStructuredData, getFAQStructuredData } from '@/lib/seo/structuredData'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
@@ -60,13 +59,6 @@ export default function HomePage() {
 
   return (
     <>
-      <SEOHead 
-        title="Stegmoji - Free Unicode Steganography Tool | Hide Messages in Plain Text"
-        description="Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with AES encryption, compression, and multiple embedding modes. Privacy-first design."
-        keywords="unicode steganography, hide messages, invisible characters, text steganography, secret messages, encryption, privacy, security, free steganography tool"
-        structuredData={[getHowToStructuredData(), getFAQStructuredData()]}
-        canonical="https://chinmay29hub-stegmoji.vercel.app"
-      />
       {/* Full-width animated background */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         {/* Enhanced floating background elements */}

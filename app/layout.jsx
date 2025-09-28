@@ -38,10 +38,11 @@ export const metadata = {
     images: [
       {
         url: 'https://chinmay29hub-stegmoji.vercel.app/og-image.png',
-        width: 2400,
-        height: 1262,
+        width: 1200,
+        height: 630,
         alt: 'Stegmoji - Unicode Steganography Tool',
         type: 'image/png',
+        secureUrl: 'https://chinmay29hub-stegmoji.vercel.app/og-image.png',
       },
     ],
   },
@@ -81,6 +82,31 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* Additional Open Graph tags for better social media support */}
+        <meta property="og:image:secure_url" content="https://chinmay29hub-stegmoji.vercel.app/og-image.png" />
+        <meta property="og:updated_time" content={new Date().toISOString()} />
+        <meta property="article:author" content="chinmay29hub" />
+        <meta property="article:publisher" content="https://chinmay29hub-stegmoji.vercel.app" />
+        
+        {/* Twitter Card additional meta tags */}
+        <meta name="twitter:domain" content="chinmay29hub-stegmoji.vercel.app" />
+        <meta name="twitter:image:alt" content="Stegmoji - Unicode Steganography Tool" />
+        
+        {/* Additional social media meta tags */}
+        <meta name="linkedin:owner" content="chinmay29hub" />
+        <meta name="telegram:channel" content="@chinmay29hub" />
+        
+        {/* Security headers */}
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="X-Frame-Options" content="DENY" />
+        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
+        <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+        
+        {/* Performance hints */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

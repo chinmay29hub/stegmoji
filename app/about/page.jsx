@@ -1,17 +1,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import SEOHead from '@/components/seo/SEOHead'
 
 export default function AboutPage() {
   return (
     <>
-      <SEOHead 
-        title="About Stegmoji - Unicode Steganography Technology and Features"
-        description="Learn about Unicode steganography technology, how Stegmoji works, security features, and responsible usage. Comprehensive guide to invisible character steganography."
-        keywords="about stegmoji, unicode steganography technology, invisible characters, text steganography, security features, steganography guide"
-        canonical="https://chinmay29hub-stegmoji.vercel.app/about"
-      />
       <div className="max-w-4xl mx-auto space-y-8">
         <div>
           <h1 className="text-3xl font-bold">About Stegmoji</h1>

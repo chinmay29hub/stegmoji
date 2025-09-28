@@ -9,7 +9,6 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { decode, MODES, scanText } from '@/lib/steganography'
 import { copyToClipboard, useLocalStorageState } from '@/lib/utils'
-import SEOHead from '@/components/seo/SEOHead'
 
 export default function DecodePage() {
   const [encodedText, setEncodedText] = useState('')
@@ -70,12 +69,6 @@ export default function DecodePage() {
 
   return (
     <>
-      <SEOHead 
-        title="Decode Messages - Extract Hidden Text from Unicode Steganography"
-        description="Extract hidden messages from encoded text using our free Unicode steganography decoder. Supports multiple embedding modes and encrypted messages."
-        keywords="decode messages, extract hidden text, unicode steganography decoder, hidden messages, invisible characters, text steganography"
-        canonical="https://chinmay29hub-stegmoji.vercel.app/decode"
-      />
       <div className="max-w-4xl mx-auto space-y-6">
         <div>
           <h1 className="text-3xl font-bold">Decode Message</h1>
