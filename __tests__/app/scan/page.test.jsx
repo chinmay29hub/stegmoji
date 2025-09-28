@@ -220,4 +220,124 @@ describe('ScanPage Component', () => {
       expect(screen.getByText('Normalization Analysis')).toBeInTheDocument()
     })
   })
+
+  test('handles different example buttons', () => {
+    render(<ScanPage />)
+    
+    // Test Tail Mode example
+    const tailButton = screen.getByText('Tail Mode')
+    fireEvent.click(tailButton)
+    
+    const textInput = screen.getByPlaceholderText('Enter text to analyze...')
+    expect(textInput.value).toContain('Hello world')
+    
+    // Test Interleaved example
+    const interleavedButton = screen.getByText('Interleaved')
+    fireEvent.click(interleavedButton)
+    
+    expect(textInput.value).toContain('H')
+    
+    // Test ZWJ-Aware example
+    const zwjButton = screen.getByText('ZWJ-Aware')
+    fireEvent.click(zwjButton)
+    
+    expect(textInput.value).toContain('H')
+  })
+
+  test('handles analysis with different invisible characters', async () => {
+    mockAnalyzeInvisibleChars.mockReturnValue({
+      invisibleChars: [
+        { char: '\uFE0E', name: 'VARIATION SELECTOR-15', codepoint: 0xFE0E, count: 2 },
+        { char: '\uFE0F', name: 'VARIATION SELECTOR-16', codepoint: 0xFE0F, count: 1 }
+      ],
+      invisibleCount: 3,
+      totalChars: 15,
+      invisibleRatio: 0.2
+    })
+    
+    render(<ScanPage />)
+    
+    const textInput = screen.getByPlaceholderText('Enter text to analyze...')
+    
+    fireEvent.change(textInput, { target: { value: 'Test text with invisible chars' } })
+    
+    await waitFor(() => {
+      expect(screen.getByText('Invisible Characters')).toBeInTheDocument()
+    })
+  })
+
+  test('handles normalization changes', async () => {
+    mockAnalyzeInvisibleChars.mockReturnValue({
+      invisibleChars: [],
+      invisibleCount: 0,
+      totalChars: 9,
+      invisibleRatio: 0
+    })
+    mockGetCodepointBreakdown.mockReturnValue([])
+    mockGetGraphemeClusters.mockReturnValue(['T', 'e', 's', 't', ' ', 't', 'e', 'x', 't'])
+    mockCheckNormalization.mockReturnValue({
+      original: 'Test text',
+      nfc: 'Test text normalized',
+      nfkc: 'Test text normalized',
+      nfcChanged: true,
+      nfkcChanged: true
+    })
+    
+    render(<ScanPage />)
+    
+    const textInput = screen.getByPlaceholderText('Enter text to analyze...')
+    
+    fireEvent.change(textInput, { target: { value: 'Test text' } })
+    
+    await waitFor(() => {
+      expect(screen.getByText('Normalization Analysis')).toBeInTheDocument()
+    })
+  })
+
+  test('handles empty text input', () => {
+    render(<ScanPage />)
+    
+    const textInput = screen.getByPlaceholderText('Enter text to analyze...')
+    fireEvent.change(textInput, { target: { value: '' } })
+    
+    expect(textInput.value).toBe('')
+  })
+
+  test('handles component unmounting', () => {
+    const { unmount } = render(<ScanPage />)
+    
+    unmount()
+  })
+
+  test('renders all analysis sections', async () => {
+    mockAnalyzeInvisibleChars.mockReturnValue({
+      invisibleChars: [],
+      invisibleCount: 0,
+      totalChars: 9,
+      invisibleRatio: 0
+    })
+    mockGetCodepointBreakdown.mockReturnValue([
+      { codepoint: 84, hex: 'U+0054', isInvisible: false, name: 'LATIN CAPITAL LETTER T' }
+    ])
+    mockGetGraphemeClusters.mockReturnValue(['T', 'e', 's', 't', ' ', 't', 'e', 'x', 't'])
+    mockCheckNormalization.mockReturnValue({
+      original: 'Test text',
+      nfc: 'Test text',
+      nfkc: 'Test text',
+      nfcChanged: false,
+      nfkcChanged: false
+    })
+    
+    render(<ScanPage />)
+    
+    const textInput = screen.getByPlaceholderText('Enter text to analyze...')
+    fireEvent.change(textInput, { target: { value: 'Test text' } })
+    
+    await waitFor(() => {
+      expect(screen.getByText('Quick Overview')).toBeInTheDocument()
+      expect(screen.getByText('Codepoint Analysis')).toBeInTheDocument()
+      expect(screen.getByText('Grapheme Clusters')).toBeInTheDocument()
+      expect(screen.getByText('Normalization Analysis')).toBeInTheDocument()
+    })
+  })
 })

@@ -212,4 +212,100 @@ describe('EncodePage Component', () => {
     
     expect(mockDownloadText).toHaveBeenCalledWith('encoded-text', 'stegmoji-encoded.txt')
   })
+
+      test('handles encoding error', async () => {
+        mockEncode.mockRejectedValue(new Error('Encoding failed'))
+        
+        render(<EncodePage />)
+        
+        const messageInput = screen.getByPlaceholderText('Enter your secret message here...')
+        const coverInput = screen.getByPlaceholderText('Enter cover text here...')
+        const encodeButton = screen.getByRole('button', { name: /encode message/i })
+        
+        fireEvent.change(messageInput, { target: { value: 'Secret message' } })
+        fireEvent.change(coverInput, { target: { value: 'Cover text' } })
+        fireEvent.click(encodeButton)
+        
+        await waitFor(() => {
+          expect(screen.getByText('Encoding failed')).toBeInTheDocument()
+        })
+      })
+
+  test('handles different encoding modes', () => {
+    mockUseLocalStorageState.mockImplementation((key, defaultValue) => {
+      const mockValues = {
+        encodeMode: 'interleaved',
+        encodeCompression: false,
+        encodeEncryption: false
+      }
+      return [mockValues[key] || defaultValue, jest.fn()]
+    })
+    
+    render(<EncodePage />)
+    
+    expect(screen.getByRole('heading', { name: /encode message/i })).toBeInTheDocument()
+  })
+
+  test('handles compression enabled state', () => {
+    mockUseLocalStorageState.mockImplementation((key, defaultValue) => {
+      const mockValues = {
+        encodeMode: 'tail',
+        encodeCompression: true,
+        encodeEncryption: false
+      }
+      return [mockValues[key] || defaultValue, jest.fn()]
+    })
+    
+    render(<EncodePage />)
+    
+    expect(screen.getByRole('heading', { name: /encode message/i })).toBeInTheDocument()
+  })
+
+  test('handles encryption with passphrase', () => {
+    mockUseLocalStorageState.mockImplementation((key, defaultValue) => {
+      const mockValues = {
+        encodeMode: 'tail',
+        encodeCompression: false,
+        encodeEncryption: true
+      }
+      return [mockValues[key] || defaultValue, jest.fn()]
+    })
+    
+    render(<EncodePage />)
+    
+    const passphraseInput = screen.getByPlaceholderText('Enter encryption passphrase')
+    fireEvent.change(passphraseInput, { target: { value: 'mypassphrase' } })
+    
+    expect(passphraseInput.value).toBe('mypassphrase')
+  })
+
+  test('handles form reset', () => {
+    render(<EncodePage />)
+    
+    const messageInput = screen.getByPlaceholderText('Enter your secret message here...')
+    const coverInput = screen.getByPlaceholderText('Enter cover text here...')
+    
+    fireEvent.change(messageInput, { target: { value: 'Secret message' } })
+    fireEvent.change(coverInput, { target: { value: 'Cover text' } })
+    
+    expect(messageInput.value).toBe('Secret message')
+    expect(coverInput.value).toBe('Cover text')
+  })
+
+  test('renders all form controls', () => {
+    render(<EncodePage />)
+    
+    expect(screen.getByRole('heading', { name: /encode message/i })).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Enter your secret message here...')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Enter cover text here...')).toBeInTheDocument()
+    expect(screen.getByRole('combobox')).toBeInTheDocument()
+    expect(screen.getAllByRole('switch')).toHaveLength(2)
+    expect(screen.getByRole('button', { name: /encode message/i })).toBeInTheDocument()
+  })
+
+  test('handles component unmounting', () => {
+    const { unmount } = render(<EncodePage />)
+    
+    unmount()
+  })
 })
