@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stegmoji - Unicode Steganography Tool | Hide Messages in Plain Text</title>
+    <meta name="description" content="Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with encryption, compression, and multiple embedding modes.">
+    <meta name="keywords" content="steganography, unicode steganography, hide messages, invisible characters, text steganography, secret messages, encryption, privacy, security">
+    <meta name="author" content="chinmay29hub">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#667eea">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chinmay29hub-stegmoji.vercel.app">
+    <meta property="og:title" content="Stegmoji - Unicode Steganography Tool | Hide Messages in Plain Text">
+    <meta property="og:description" content="Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with encryption, compression, and multiple embedding modes.">
+    <meta property="og:image" content="https://chinmay29hub-stegmoji.vercel.app/og-image.png">
+    <meta property="og:image:width" content="2400">
+    <meta property="og:image:height" content="1262">
+    <meta property="og:image:alt" content="Stegmoji - Unicode Steganography Tool">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:site_name" content="Stegmoji">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" content="chinmay29hub-stegmoji.vercel.app">
+    <meta name="twitter:url" content="https://chinmay29hub-stegmoji.vercel.app">
+    <meta name="twitter:title" content="Stegmoji - Unicode Steganography Tool | Hide Messages in Plain Text">
+    <meta name="twitter:description" content="Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with encryption, compression, and multiple embedding modes.">
+    <meta name="twitter:image" content="https://chinmay29hub-stegmoji.vercel.app/og-image.png">
+    <meta name="twitter:image:alt" content="Stegmoji - Unicode Steganography Tool">
+    <meta name="twitter:creator" content="@chinmay29hub">
+    <meta name="twitter:site" content="@chinmay29hub">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="application-name" content="Stegmoji">
+    <meta name="apple-mobile-web-app-title" content="Stegmoji">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#667eea">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f8fafc;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1e293b;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .subtitle {
+            color: #64748b;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .feature {
+            padding: 1.5rem;
+            background: #f1f5f9;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .feature h3 {
+            margin: 0 0 0.5rem 0;
+            color: #1e293b;
+        }
+        .feature p {
+            margin: 0;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        .cta {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            margin: 0 8px;
+        }
+        .btn:hover {
+            background: #5a67d8;
+        }
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #475569;
+        }
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 Stegmoji</h1>
+        <p class="subtitle">Hide secret messages in plain text using invisible Unicode characters</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>🔐 Secure Encryption</h3>
+                <p>AES-GCM encryption with PBKDF2 key derivation for maximum security</p>
+            </div>
+            <div class="feature">
+                <h3>📦 Compression</h3>
+                <p>DEFLATE compression to fit more data in shorter texts</p>
+            </div>
+            <div class="feature">
+                <h3>🎯 Multiple Modes</h3>
+                <p>Tail, Interleaved, and ZWJ-aware embedding modes</p>
+            </div>
+            <div class="feature">
+                <h3>🔍 Text Analysis</h3>
+                <p>Comprehensive Unicode analysis and steganography detection</p>
+            </div>
+        </div>
+        
+        <div class="cta">
+            <a href="/encode" class="btn">Start Encoding</a>
+            <a href="/decode" class="btn btn-secondary">Decode Messages</a>
+        </div>
+        
+        <p style="text-align: center; color: #64748b; font-size: 0.9rem;">
+            All processing happens locally in your browser. No data is sent to external servers.
+        </p>
+    </div>
+</body>
+</html>

@@ -5,7 +5,7 @@ export default function SEOHead({
   description = "Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with encryption, compression, and multiple embedding modes.",
   keywords = "steganography, unicode steganography, hide messages, invisible characters, text steganography, secret messages, encryption, privacy, security",
   canonical = "",
-  ogImage = "/og-image.png",
+  ogImage = "https://chinmay29hub-stegmoji.vercel.app/og-image.png",
   structuredData = null
 }) {
   const fullTitle = title.includes('Stegmoji') ? title : `${title} | Stegmoji`
@@ -41,6 +41,7 @@ export default function SEOHead({
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:domain" content="chinmay29hub-stegmoji.vercel.app" />
       <meta name="twitter:url" content={canonical || "https://chinmay29hub-stegmoji.vercel.app"} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={fullDescription} />

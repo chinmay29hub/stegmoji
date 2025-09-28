@@ -10,7 +10,31 @@ import { Switch } from '@/components/ui/switch'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { encode, MODES, calculateCapacity } from '@/lib/steganography'
 import { copyToClipboard, downloadText, formatBytes, useLocalStorageState } from '@/lib/utils'
-import SEOHead from '@/components/seo/SEOHead'
+
+export const metadata = {
+  title: 'Encode Messages - Hide Secret Text with Unicode Steganography',
+  description: 'Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with AES encryption, compression, and multiple embedding modes.',
+  keywords: ['encode messages', 'hide text', 'unicode steganography', 'secret messages', 'invisible characters', 'text steganography', 'encryption'],
+  openGraph: {
+    title: 'Encode Messages - Hide Secret Text with Unicode Steganography',
+    description: 'Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with AES encryption, compression, and multiple embedding modes.',
+    url: 'https://chinmay29hub-stegmoji.vercel.app/encode',
+    images: [
+      {
+        url: 'https://chinmay29hub-stegmoji.vercel.app/og-image.png',
+        width: 2400,
+        height: 1262,
+        alt: 'Stegmoji - Unicode Steganography Tool',
+        type: 'image/png',
+      },
+    ],
+  },
+  twitter: {
+    title: 'Encode Messages - Hide Secret Text with Unicode Steganography',
+    description: 'Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with AES encryption, compression, and multiple embedding modes.',
+    images: ['https://chinmay29hub-stegmoji.vercel.app/og-image.png'],
+  },
+}
 
 export default function EncodePage() {
   const [message, setMessage] = useState('')
@@ -100,12 +124,6 @@ export default function EncodePage() {
 
   return (
     <>
-      <SEOHead 
-        title="Encode Messages - Hide Secret Text with Unicode Steganography"
-        description="Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with AES encryption, compression, and multiple embedding modes."
-        keywords="encode messages, hide text, unicode steganography, secret messages, invisible characters, text steganography, encryption"
-        canonical="https://chinmay29hub-stegmoji.vercel.app/encode"
-      />
       <div className="max-w-4xl mx-auto space-y-6">
         <div>
           <h1 className="text-3xl font-bold">Encode Message</h1>
