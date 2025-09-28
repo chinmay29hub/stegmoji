@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: {
-    default: 'Stegmoji - Unicode Steganography Tool | Hide Messages in Plain Text',
+    default: 'Stegmoji - Hide Messages in Plain Text',
     template: '%s | Stegmoji'
   },
   description: 'Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with encryption, compression, and multiple embedding modes.',
@@ -31,7 +31,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     url: 'https://chinmay29hub-stegmoji.vercel.app',
-    title: 'Stegmoji - Unicode Steganography Tool | Hide Messages in Plain Text',
+    title: 'Stegmoji - Hide Messages in Plain Text',
     description: 'Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with encryption, compression, and multiple embedding modes.',
     siteName: 'Stegmoji',
     locale: 'en_US',
@@ -50,7 +50,7 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@chinmay29hub',
     creator: '@chinmay29hub',
-    title: 'Stegmoji - Unicode Steganography Tool | Hide Messages in Plain Text',
+    title: 'Stegmoji - Hide Messages in Plain Text',
     description: 'Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with encryption, compression, and multiple embedding modes.',
     images: ['https://chinmay29hub-stegmoji.vercel.app/og-image.png'],
   },

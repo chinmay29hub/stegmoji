@@ -1,12 +1,12 @@
 export const metadata = {
-  title: 'Unicode Scanner - Analyze Text for Hidden Steganography',
+  title: 'Unicode Scanner - Analyze Text',
   description: 'Analyze text for hidden Unicode steganography. Detect invisible characters, variation selectors, and potential hidden messages in any text.',
   keywords: ['unicode scanner', 'text analysis', 'steganography detection', 'invisible characters', 'variation selectors', 'hidden messages'],
   alternates: {
     canonical: 'https://chinmay29hub-stegmoji.vercel.app/scan',
   },
   openGraph: {
-    title: 'Unicode Scanner - Analyze Text for Hidden Steganography',
+    title: 'Unicode Scanner - Analyze Text',
     description: 'Analyze text for hidden Unicode steganography. Detect invisible characters, variation selectors, and potential hidden messages in any text.',
     url: 'https://chinmay29hub-stegmoji.vercel.app/scan',
     images: [
@@ -21,7 +21,7 @@ export const metadata = {
     ],
   },
   twitter: {
-    title: 'Unicode Scanner - Analyze Text for Hidden Steganography',
+    title: 'Unicode Scanner - Analyze Text',
     description: 'Analyze text for hidden Unicode steganography. Detect invisible characters, variation selectors, and potential hidden messages in any text.',
     images: ['https://chinmay29hub-stegmoji.vercel.app/og-image.png'],
   },

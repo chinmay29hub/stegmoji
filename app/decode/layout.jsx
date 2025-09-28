@@ -1,12 +1,12 @@
 export const metadata = {
-  title: 'Decode Messages - Extract Hidden Text from Unicode Steganography',
+  title: 'Decode Messages - Extract Hidden Text',
   description: 'Extract hidden messages from encoded text using our free Unicode steganography decoder. Supports multiple embedding modes and encrypted messages.',
   keywords: ['decode messages', 'extract hidden text', 'unicode steganography decoder', 'hidden messages', 'invisible characters', 'text steganography'],
   alternates: {
     canonical: 'https://chinmay29hub-stegmoji.vercel.app/decode',
   },
   openGraph: {
-    title: 'Decode Messages - Extract Hidden Text from Unicode Steganography',
+    title: 'Decode Messages - Extract Hidden Text',
     description: 'Extract hidden messages from encoded text using our free Unicode steganography decoder. Supports multiple embedding modes and encrypted messages.',
     url: 'https://chinmay29hub-stegmoji.vercel.app/decode',
     images: [
@@ -21,7 +21,7 @@ export const metadata = {
     ],
   },
   twitter: {
-    title: 'Decode Messages - Extract Hidden Text from Unicode Steganography',
+    title: 'Decode Messages - Extract Hidden Text',
     description: 'Extract hidden messages from encoded text using our free Unicode steganography decoder. Supports multiple embedding modes and encrypted messages.',
     images: ['https://chinmay29hub-stegmoji.vercel.app/og-image.png'],
   },
