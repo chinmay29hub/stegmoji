@@ -19,7 +19,7 @@ Security vulnerabilities should be reported privately to avoid exposing users to
 
 ### 2. Report the vulnerability
 
-Please report security vulnerabilities by emailing us at: **security@stegmoji.dev**
+Please report security vulnerabilities by emailing us at: **chimaysonawane57@gmail.com**
 
 Include the following information in your report:
 
@@ -109,7 +109,7 @@ We regularly audit our codebase for security issues:
 
 For security-related questions or concerns:
 
-- **Email**: security@stegmoji.dev
+- **Email**: (chinmaysonawane57@gmail.com)[chinmaysonawane57@gmail.com]
 - **GitHub Security**: Use GitHub's private vulnerability reporting feature
 - **Response Time**: We aim to respond within 48 hours
 

@@ -18,9 +18,8 @@ export function ThemeProvider({ children }) {
     } else if (saved === 'false') {
       setTheme('light')
     } else {
-      // No preference, use system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      setTheme(prefersDark ? 'dark' : 'light')
+      // No preference, default to dark mode for new users
+      setTheme('dark')
     }
   }, [])
 

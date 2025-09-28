@@ -10,6 +10,8 @@ A modern web application for Unicode steganography - hiding secret messages insi
 - **Unicode Analysis**: Comprehensive text analysis and visualization
 - **Privacy-First**: All processing happens locally in your browser
 - **Modern UI**: Built with Next.js, Tailwind CSS, and shadcn/ui components
+- **Dark Mode**: Default dark theme with light/dark mode toggle
+- **Responsive Design**: Optimized for mobile and desktop devices
 
 ## Quick Start
 
@@ -143,27 +145,35 @@ stegmoji/
 │   ├── encode/page.jsx     # Encoding interface
 │   ├── decode/page.jsx     # Decoding interface
 │   ├── scan/page.jsx       # Unicode analysis
-│   └── about/page.jsx      # Documentation
-├── components/ui/          # Reusable UI components
+│   ├── about/page.jsx      # Documentation
+│   └── sitemap.xml/        # SEO sitemap
+├── components/             # React components
+│   ├── ui/                 # Reusable UI components
+│   ├── theme-provider.jsx  # Dark/light mode provider
+│   └── client-layout.jsx   # Client-side layout
 ├── lib/                    # Core functionality
 │   ├── steganography.js   # Main steganography logic
 │   ├── compression.js     # DEFLATE compression
 │   ├── encryption.js      # AES-GCM encryption
 │   ├── unicode.js         # Unicode utilities
+│   ├── use-dark-mode.js   # Dark mode hook
 │   └── utils.js           # Helper functions
+├── __tests__/              # Comprehensive test suite
+├── .github/                # GitHub templates and workflows
 └── public/                 # Static assets
 ```
 
 ### Key Dependencies
 
 - **Next.js 14**: React framework with App Router
-- **Tailwind CSS**: Utility-first CSS framework
+- **Tailwind CSS**: Utility-first CSS framework with dark mode support
 - **Radix UI**: Accessible component primitives
+- **Framer Motion**: Smooth animations and transitions
 - **grapheme-splitter**: Unicode grapheme cluster splitting
 - **pako**: DEFLATE compression library
 - **Web Crypto API**: Browser-native encryption
-- **Jest**: Testing framework
-- **ESLint**: Code linting
+- **Jest**: Testing framework with comprehensive test coverage
+- **ESLint**: Code linting and formatting
 
 ### Browser Compatibility
 
@@ -208,11 +218,12 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 - 🐛 **Bug fixes** - Fix issues and improve stability
 - ✨ **New features** - Add new functionality
 - 📚 **Documentation** - Improve docs and examples
-- 🧪 **Tests** - Add or improve test coverage
+- 🧪 **Tests** - Add or improve test coverage (currently 95%+)
 - 🚀 **Performance** - Optimize code and improve speed
 - 🎨 **UI/UX** - Improve user interface and experience
 - ♿ **Accessibility** - Make the app more accessible
 - 🔒 **Security** - Fix security vulnerabilities
+- 🌙 **Theme improvements** - Enhance dark/light mode experience
 
 ### Development Setup
 
@@ -227,11 +238,14 @@ pnpm install
 # Start development server
 pnpm dev
 
-# Run tests
-pnpm test
+# Run tests with coverage
+pnpm test --coverage
 
 # Run linter
 pnpm lint
+
+# Build for production
+pnpm build
 ```
 
 ### Getting Help
@@ -260,6 +274,8 @@ This application is optimized for performance:
 - **Optimized builds** - Source maps disabled in production
 - **Efficient algorithms** - Fast steganography operations
 - **Modern browser APIs** - Native Web Crypto and compression
+- **Dark mode optimization** - Instant theme switching without flash
+- **Responsive animations** - Smooth transitions with Framer Motion
 
 ## Support
 
@@ -274,7 +290,7 @@ This application is optimized for performance:
 ### Security Issues
 
 - 🔒 **Security Vulnerabilities**: See [SECURITY.md](SECURITY.md) for reporting security issues
-- 📧 **Private Reporting**: Email security@stegmoji.dev for sensitive issues
+- 📧 **Private Reporting**: Email chinmaysonawane57@gmail.com for sensitive issues
 
 ### Contributing
 

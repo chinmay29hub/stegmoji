@@ -137,9 +137,15 @@ export default function RootLayout({ children }) {
                   const saved = localStorage.getItem('darkMode');
                   if (saved === 'true') {
                     document.documentElement.classList.add('dark');
+                  } else if (saved === 'false') {
+                    document.documentElement.classList.remove('dark');
+                  } else {
+                    // No preference, default to dark mode for new users
+                    document.documentElement.classList.add('dark');
                   }
                 } catch (e) {
-                  // Ignore localStorage errors
+                  // Ignore localStorage errors, default to dark mode
+                  document.documentElement.classList.add('dark');
                 }
               })();
             `,

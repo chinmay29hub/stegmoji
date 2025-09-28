@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useMemo } from 'react'
+import { motion } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
@@ -64,17 +65,221 @@ export default function ScanPage() {
 
   return (
     <>
-      <div className="max-w-6xl mx-auto space-y-6">
-        <div>
+      {/* Scanning-themed animated background */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Floating scanning symbols */}
+        <motion.div
+          className="absolute top-20 left-16 text-4xl opacity-10"
+          animate={{
+            y: [0, -30, 0],
+            rotate: [0, 20, -20, 0],
+            opacity: [0.05, 0.2, 0.05]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          🔬
+        </motion.div>
+        <motion.div
+          className="absolute top-40 right-20 text-3xl opacity-10"
+          animate={{
+            y: [0, 25, 0],
+            rotate: [0, -25, 25, 0],
+            opacity: [0.05, 0.18, 0.05]
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        >
+          🔍
+        </motion.div>
+        <motion.div
+          className="absolute bottom-40 left-20 text-2xl opacity-10"
+          animate={{
+            y: [0, -35, 0],
+            x: [0, 30, 0],
+            rotate: [0, 30, -30, 0],
+            opacity: [0.05, 0.15, 0.05]
+          }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        >
+          📊
+        </motion.div>
+        
+        {/* Floating scanning-related text */}
+        <motion.div
+          className="absolute top-32 left-1/3 text-xs font-mono text-indigo-400/20"
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+            opacity: [0.1, 0.4, 0.1],
+            rotate: [0, 12, -12, 0]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          SCAN
+        </motion.div>
+        <motion.div
+          className="absolute top-60 right-1/3 text-xs font-mono text-teal-400/20"
+          animate={{
+            y: [0, 25, 0],
+            x: [0, -18, 0],
+            opacity: [0.1, 0.35, 0.1],
+            rotate: [0, -15, 15, 0]
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        >
+          ANALYZE
+        </motion.div>
+        <motion.div
+          className="absolute bottom-32 right-16 text-xs font-mono text-emerald-400/20"
+          animate={{
+            y: [0, -25, 0],
+            x: [0, 25, 0],
+            opacity: [0.1, 0.3, 0.1],
+            rotate: [0, 18, -18, 0]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          DETECT
+        </motion.div>
+        
+        {/* Floating geometric shapes for scanning theme */}
+        <motion.div
+          className="absolute top-24 left-12 w-12 h-12 bg-gradient-to-br from-indigo-400/15 to-purple-500/15 rounded-full blur-sm"
+          animate={{
+            y: [0, -35, 0],
+            x: [0, 25, 0],
+            scale: [1, 1.4, 1],
+            opacity: [0.2, 0.5, 0.2],
+            rotate: [0, 90, 180, 270, 360]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-48 right-12 w-8 h-8 bg-gradient-to-br from-teal-400/15 to-cyan-500/15 rounded-full blur-sm"
+          animate={{
+            y: [0, 30, 0],
+            x: [0, -20, 0],
+            scale: [1, 0.9, 1],
+            opacity: [0.2, 0.6, 0.2],
+            rotate: [0, -90, -180, -270, -360]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-48 left-16 w-11 h-11 bg-gradient-to-br from-emerald-400/15 to-green-500/15 rounded-full blur-sm"
+          animate={{
+            y: [0, -40, 0],
+            x: [0, 35, 0],
+            scale: [1, 1.5, 1],
+            opacity: [0.2, 0.4, 0.2],
+            rotate: [0, 72, 144, 216, 288, 360]
+          }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* Floating scanning grid patterns */}
+        <motion.div
+          className="absolute top-36 left-8 w-8 h-8 border border-indigo-400/20"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.5, 0.2],
+            rotate: [0, 45, 90, 135, 180, 225, 270, 315, 360]
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-36 right-8 w-6 h-6 border border-teal-400/20"
+          animate={{
+            scale: [1, 0.8, 1],
+            opacity: [0.2, 0.6, 0.2],
+            rotate: [0, -45, -90, -135, -180, -225, -270, -315, -360]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* Animated connection lines */}
+        <motion.div
+          className="absolute top-28 left-1/2 w-1 h-24 bg-gradient-to-b from-indigo-400/20 to-transparent"
+          animate={{
+            scaleY: [1, 1.5, 1],
+            opacity: [0.2, 0.6, 0.2],
+            rotate: [0, 10, -10, 0]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-28 right-1/2 w-28 h-1 bg-gradient-to-r from-teal-400/20 to-transparent"
+          animate={{
+            scaleX: [1, 1.4, 1],
+            opacity: [0.1, 0.5, 0.1],
+            rotate: [0, -8, 8, 0]
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* Floating dots pattern */}
+        <motion.div
+          className="absolute top-16 left-1/4 w-2 h-2 bg-indigo-400/10 rounded-full"
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+            opacity: [0.1, 0.5, 0.1]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-40 right-1/3 w-1.5 h-1.5 bg-teal-400/10 rounded-full"
+          animate={{
+            y: [0, 25, 0],
+            x: [0, -15, 0],
+            opacity: [0.1, 0.4, 0.1]
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-24 left-1/3 w-2.5 h-2.5 bg-emerald-400/10 rounded-full"
+          animate={{
+            y: [0, -35, 0],
+            x: [0, 30, 0],
+            opacity: [0.1, 0.6, 0.1]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* Animated background gradient */}
+        <motion.div
+          className="absolute inset-0 opacity-5"
+          animate={{
+            background: [
+              "radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 75% 75%, rgba(20, 184, 166, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%)"
+            ]
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto space-y-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <h1 className="text-3xl font-bold">Unicode Scanner</h1>
           <p className="text-muted-foreground">
             Analyze text for invisible characters, Unicode properties, and potential steganography
           </p>
-        </div>
+        </motion.div>
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Input Section */}
-        <div className="space-y-6">
+        <motion.div 
+          className="space-y-6"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           <Card>
             <CardHeader>
               <CardTitle>Text to Analyze</CardTitle>
@@ -145,10 +350,15 @@ export default function ScanPage() {
               </CardContent>
             </Card>
           )}
-        </div>
+        </motion.div>
 
         {/* Analysis Results */}
-        <div className="space-y-6">
+        <motion.div 
+          className="space-y-6"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           {analysis ? (
             <>
               {/* Invisible Characters */}
@@ -372,7 +582,7 @@ export default function ScanPage() {
               </CardContent>
             </Card>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
     </>

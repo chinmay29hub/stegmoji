@@ -26,10 +26,10 @@ describe('useDarkMode Hook', () => {
     mockMatchMedia.mockReturnValue({ matches: false })
   })
 
-  test('initializes with false when no localStorage value', () => {
+  test('initializes with true when no localStorage value (defaults to dark mode)', () => {
     const { result } = renderHook(() => useDarkMode())
     
-    expect(result.current.darkMode).toBe(false)
+    expect(result.current.darkMode).toBe(true)
     expect(result.current.mounted).toBe(true)
   })
 
@@ -51,38 +51,48 @@ describe('useDarkMode Hook', () => {
     expect(result.current.mounted).toBe(true)
   })
 
-  test('uses system preference when no localStorage value', () => {
+  test('defaults to dark mode when no localStorage value (ignores system preference)', () => {
     mockLocalStorage.getItem.mockReturnValue(null)
-    mockMatchMedia.mockReturnValue({ matches: true })
+    mockMatchMedia.mockReturnValue({ matches: false }) // System prefers light mode
     
     const { result } = renderHook(() => useDarkMode())
     
-    expect(result.current.darkMode).toBe(true) // Should be true from system preference
+    expect(result.current.darkMode).toBe(true) // Should be true (dark mode default)
     expect(result.current.mounted).toBe(true)
   })
 
-  test('toggles dark mode', () => {
+  test('toggles from dark mode to light mode', () => {
     const { result } = renderHook(() => useDarkMode())
     
-    act(() => {
-      result.current.toggleDarkMode()
-    })
-    
+    // Should start with dark mode (true)
     expect(result.current.darkMode).toBe(true)
-  })
-
-  test('toggles back to light mode', () => {
-    const { result } = renderHook(() => useDarkMode())
-    
-    act(() => {
-      result.current.toggleDarkMode()
-    })
     
     act(() => {
       result.current.toggleDarkMode()
     })
     
     expect(result.current.darkMode).toBe(false)
+  })
+
+  test('toggles back to dark mode', () => {
+    const { result } = renderHook(() => useDarkMode())
+    
+    // Start with dark mode (true)
+    expect(result.current.darkMode).toBe(true)
+    
+    // Toggle to light mode (false)
+    act(() => {
+      result.current.toggleDarkMode()
+    })
+    
+    expect(result.current.darkMode).toBe(false)
+    
+    // Toggle back to dark mode (true)
+    act(() => {
+      result.current.toggleDarkMode()
+    })
+    
+    expect(result.current.darkMode).toBe(true)
   })
 
   test('handles localStorage errors gracefully', () => {
@@ -95,8 +105,8 @@ describe('useDarkMode Hook', () => {
     
     const { result } = renderHook(() => useDarkMode())
     
-    // The hook should still initialize with false values
-    expect(result.current.darkMode).toBe(false)
+    // The hook should still initialize with dark mode default (true)
+    expect(result.current.darkMode).toBe(true)
     expect(result.current.mounted).toBe(true)
     
     // Clean up
@@ -111,7 +121,7 @@ describe('useDarkMode Hook', () => {
     
     const { result } = renderHook(() => useDarkMode())
     
-    expect(result.current.darkMode).toBe(false)
+    expect(result.current.darkMode).toBe(true) // Should default to dark mode
     expect(result.current.mounted).toBe(true)
   })
 

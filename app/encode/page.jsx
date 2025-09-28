@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
+import { motion } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -99,17 +100,239 @@ export default function EncodePage() {
 
   return (
     <>
-      <div className="max-w-4xl mx-auto space-y-6">
-        <div>
+      {/* Encoding-themed animated background */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Floating encryption symbols */}
+        <motion.div
+          className="absolute top-20 left-16 text-4xl opacity-10"
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 10, -10, 0],
+            opacity: [0.05, 0.15, 0.05]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          🔐
+        </motion.div>
+        <motion.div
+          className="absolute top-40 right-20 text-3xl opacity-10"
+          animate={{
+            y: [0, 15, 0],
+            rotate: [0, -15, 15, 0],
+            opacity: [0.05, 0.2, 0.05]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          🔒
+        </motion.div>
+        <motion.div
+          className="absolute bottom-40 left-20 text-2xl opacity-10"
+          animate={{
+            y: [0, -25, 0],
+            x: [0, 20, 0],
+            rotate: [0, 20, -20, 0],
+            opacity: [0.05, 0.18, 0.05]
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        >
+          🛡️
+        </motion.div>
+        
+        {/* Floating binary code particles */}
+        <motion.div
+          className="absolute top-32 left-1/3 text-xs font-mono text-green-400/20"
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 15, 0],
+            opacity: [0.1, 0.4, 0.1],
+            rotate: [0, 8, -8, 0]
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          01001000
+        </motion.div>
+        <motion.div
+          className="absolute top-60 right-1/3 text-xs font-mono text-blue-400/20"
+          animate={{
+            y: [0, 20, 0],
+            x: [0, -12, 0],
+            opacity: [0.1, 0.3, 0.1],
+            rotate: [0, -10, 10, 0]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          01101001
+        </motion.div>
+        <motion.div
+          className="absolute bottom-32 right-16 text-xs font-mono text-purple-400/20"
+          animate={{
+            y: [0, -18, 0],
+            x: [0, 22, 0],
+            opacity: [0.1, 0.35, 0.1],
+            rotate: [0, 12, -12, 0]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          01100100
+        </motion.div>
+        
+        {/* Floating geometric shapes for encoding theme */}
+        <motion.div
+          className="absolute top-24 left-12 w-8 h-8 bg-gradient-to-br from-green-400/15 to-emerald-500/15 rounded-full blur-sm"
+          animate={{
+            y: [0, -25, 0],
+            x: [0, 18, 0],
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.5, 0.2],
+            rotate: [0, 90, 180, 270, 360]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-48 right-12 w-6 h-6 bg-gradient-to-br from-blue-400/15 to-cyan-500/15 rounded-full blur-sm"
+          animate={{
+            y: [0, 20, 0],
+            x: [0, -15, 0],
+            scale: [1, 0.8, 1],
+            opacity: [0.2, 0.6, 0.2],
+            rotate: [0, -90, -180, -270, -360]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-48 left-16 w-10 h-10 bg-gradient-to-br from-purple-400/15 to-violet-500/15 rounded-full blur-sm"
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 25, 0],
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2],
+            rotate: [0, 60, 120, 180, 240, 300, 360]
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* Floating encoding-related text */}
+        <motion.div
+          className="absolute top-36 left-8 text-xs font-mono text-orange-400/15"
+          animate={{
+            y: [0, -15, 0],
+            x: [0, 10, 0],
+            opacity: [0.1, 0.3, 0.1],
+            rotate: [0, 5, -5, 0]
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          ENCODE
+        </motion.div>
+        <motion.div
+          className="absolute bottom-36 right-8 text-xs font-mono text-pink-400/15"
+          animate={{
+            y: [0, 12, 0],
+            x: [0, -8, 0],
+            opacity: [0.1, 0.25, 0.1],
+            rotate: [0, -8, 8, 0]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          HIDE
+        </motion.div>
+        <motion.div
+          className="absolute top-52 right-1/4 text-xs font-mono text-yellow-400/15"
+          animate={{
+            y: [0, -10, 0],
+            x: [0, 18, 0],
+            opacity: [0.1, 0.3, 0.1],
+            rotate: [0, 10, -10, 0]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          SECRET
+        </motion.div>
+        
+        {/* Animated connection lines */}
+        <motion.div
+          className="absolute top-28 left-1/2 w-1 h-16 bg-gradient-to-b from-green-400/20 to-transparent"
+          animate={{
+            scaleY: [1, 1.3, 1],
+            opacity: [0.2, 0.5, 0.2],
+            rotate: [0, 5, -5, 0]
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-28 right-1/2 w-20 h-1 bg-gradient-to-r from-blue-400/20 to-transparent"
+          animate={{
+            scaleX: [1, 1.2, 1],
+            opacity: [0.1, 0.4, 0.1],
+            rotate: [0, -3, 3, 0]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* Floating dots pattern */}
+        <motion.div
+          className="absolute top-16 left-1/4 w-2 h-2 bg-green-400/10 rounded-full"
+          animate={{
+            y: [0, -20, 0],
+            x: [0, 15, 0],
+            opacity: [0.1, 0.4, 0.1]
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-40 right-1/3 w-1.5 h-1.5 bg-blue-400/10 rounded-full"
+          animate={{
+            y: [0, 18, 0],
+            x: [0, -10, 0],
+            opacity: [0.1, 0.3, 0.1]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-24 left-1/3 w-2.5 h-2.5 bg-purple-400/10 rounded-full"
+          animate={{
+            y: [0, -25, 0],
+            x: [0, 20, 0],
+            opacity: [0.1, 0.5, 0.1]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* Animated background gradient */}
+        <motion.div
+          className="absolute inset-0 opacity-5"
+          animate={{
+            background: [
+              "radial-gradient(circle at 30% 30%, rgba(34, 197, 94, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 70% 70%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 30% 30%, rgba(34, 197, 94, 0.1) 0%, transparent 50%)"
+            ]
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+
+      <div className="max-w-4xl mx-auto space-y-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <h1 className="text-3xl font-bold">Encode Message</h1>
           <p className="text-muted-foreground">
             Hide a secret message inside cover text using invisible Unicode characters
           </p>
-        </div>
+        </motion.div>
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Input Section */}
-        <div className="space-y-6">
+        <motion.div 
+          className="space-y-6"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           <Card>
             <CardHeader>
               <CardTitle>Hidden Message</CardTitle>
@@ -270,10 +493,15 @@ export default function EncodePage() {
               capacity={capacity}, bits={estimatedBits}, exceeds={exceedsCapacity ? '✗' : '✓'}
             </div>
           )}
-        </div>
+        </motion.div>
 
         {/* Output Section */}
-        <div className="space-y-6">
+        <motion.div 
+          className="space-y-6"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <Card>
             <CardHeader>
               <CardTitle>Encoded Output</CardTitle>
@@ -334,7 +562,7 @@ export default function EncodePage() {
               <p className="text-sm text-green-600 dark:text-green-400">{success}</p>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
     </>

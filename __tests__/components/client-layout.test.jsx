@@ -77,6 +77,26 @@ describe('ClientLayout', () => {
     expect(githubButton).toBeInTheDocument()
   })
 
+  test('GitHub button opens repository in new tab', () => {
+    // Mock window.open
+    const mockOpen = jest.fn()
+    Object.defineProperty(window, 'open', {
+      value: mockOpen,
+      writable: true
+    })
+
+    render(
+      <ClientLayout>
+        <div>Test content</div>
+      </ClientLayout>
+    )
+    
+    const githubButton = screen.getByRole('button', { name: /github/i })
+    fireEvent.click(githubButton)
+    
+    expect(mockOpen).toHaveBeenCalledWith('https://github.com/chinmay29hub/stegmoji', '_blank')
+  })
+
   test('renders footer', () => {
     render(
       <ClientLayout>
