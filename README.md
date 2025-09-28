@@ -192,11 +192,58 @@ Requires modern browsers with Web Crypto API support.
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on how to get started.
+
+### Quick Start for Contributors
+
+1. **Fork the repository** and clone your fork
+2. **Create a feature branch**: `git checkout -b feature/your-feature-name`
+3. **Install dependencies**: `pnpm install`
+4. **Start development**: `pnpm dev`
+5. **Make your changes** and test them
+6. **Submit a pull request**
+
+### Types of Contributions
+
+- 🐛 **Bug fixes** - Fix issues and improve stability
+- ✨ **New features** - Add new functionality
+- 📚 **Documentation** - Improve docs and examples
+- 🧪 **Tests** - Add or improve test coverage
+- 🚀 **Performance** - Optimize code and improve speed
+- 🎨 **UI/UX** - Improve user interface and experience
+- ♿ **Accessibility** - Make the app more accessible
+- 🔒 **Security** - Fix security vulnerabilities
+
+### Development Setup
+
+```bash
+# Clone your fork
+git clone https://github.com/YOUR_USERNAME/stegmoji.git
+cd stegmoji
+
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+
+# Run tests
+pnpm test
+
+# Run linter
+pnpm lint
+```
+
+### Getting Help
+
+- 📖 **Documentation**: Check our [Contributing Guide](CONTRIBUTING.md)
+- 💬 **Discussions**: Use GitHub Discussions for questions
+- 🐛 **Issues**: Create an issue for bugs or feature requests
+- 🔒 **Security**: See [SECURITY.md](SECURITY.md) for security issues
+
+### Code of Conduct
+
+This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you agree to uphold this code.
 
 ## License
 
@@ -216,10 +263,24 @@ This application is optimized for performance:
 
 ## Support
 
-For questions, issues, or contributions:
-- Open an issue on GitHub
-- Check the documentation in the About page
-- Review the source code for implementation details
+### Community Support
+
+- 🐛 **Bug Reports**: Use our [bug report template](.github/ISSUE_TEMPLATE/bug_report.yml)
+- ✨ **Feature Requests**: Use our [feature request template](.github/ISSUE_TEMPLATE/feature_request.yml)
+- ❓ **Questions**: Use our [question template](.github/ISSUE_TEMPLATE/question.yml)
+- 💬 **Discussions**: Use GitHub Discussions for general questions
+- 📖 **Documentation**: Check the About page and source code
+
+### Security Issues
+
+- 🔒 **Security Vulnerabilities**: See [SECURITY.md](SECURITY.md) for reporting security issues
+- 📧 **Private Reporting**: Email security@stegmoji.dev for sensitive issues
+
+### Contributing
+
+- 📝 **Contributing Guide**: See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines
+- 🤝 **Code of Conduct**: See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for community guidelines
+- 🔄 **Pull Requests**: Use our [PR template](.github/pull_request_template.md)
 
 ---
 

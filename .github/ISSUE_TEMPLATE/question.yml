@@ -1,0 +1,91 @@
+name: Question
+description: Ask a question about the project
+title: "[Question]: "
+labels: ["question"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for asking a question! Please provide as much detail as possible to help us give you a good answer.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What would you like to know?
+      placeholder: Ask your question here...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Provide any relevant context about your question.
+      placeholder: |
+        - What are you trying to achieve?
+        - What have you tried so far?
+        - Any specific constraints or requirements?
+
+  - type: dropdown
+    id: question-type
+    attributes:
+      label: Question Type
+      description: What type of question is this?
+      options:
+        - How to use a feature
+        - Troubleshooting
+        - Best practices
+        - Implementation help
+        - General inquiry
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: code-example
+    attributes:
+      label: Code Example
+      description: If applicable, provide any relevant code snippets.
+      placeholder: |
+        ```javascript
+        // Your code here
+        ```
+
+  - type: textarea
+    id: error-messages
+    attributes:
+      label: Error Messages
+      description: If you're getting errors, paste them here.
+      placeholder: Paste any error messages here...
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency
+      description: How urgent is this question?
+      options:
+        - Low - Just curious
+        - Medium - Would like to know soon
+        - High - Blocking my work
+        - Critical - Need immediate help
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context about your question here.
+      placeholder: Any additional information that might be helpful...
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
