@@ -1,8 +1,6 @@
-# Allow all search engine bots to crawl the entire site
 User-agent: *
 Allow: /
 
-# Major search engines (verified names)
 User-agent: Googlebot
 Allow: /
 
@@ -15,7 +13,6 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-# International search engines (verified names)
 User-agent: Baiduspider
 Allow: /
 
@@ -31,7 +28,6 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-# Social media and messaging bots (verified names)
 User-agent: facebookexternalhit
 Allow: /
 
@@ -53,7 +49,6 @@ Allow: /
 User-agent: SlackBot
 Allow: /
 
-# AI and content crawlers (verified names)
 User-agent: ChatGPT-User
 Allow: /
 
@@ -66,7 +61,5 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# Sitemap location
 Sitemap: https://chinmay29hub-stegmoji.vercel.app/sitemap.xml
 
-# Allow all pages - no restrictions needed since private directories are gitignored
