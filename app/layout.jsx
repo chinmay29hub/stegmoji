@@ -98,9 +98,8 @@ export default function RootLayout({ children }) {
         <meta name="linkedin:owner" content="chinmay29hub" />
         <meta name="telegram:channel" content="@chinmay29hub" />
         
-        {/* Security headers */}
+        {/* Security headers - only include meta tags that work in HTML */}
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
         <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
         
