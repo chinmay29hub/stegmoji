@@ -28,6 +28,10 @@
         {
           "key": "Referrer-Policy",
           "value": "origin-when-cross-origin"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         }
       ]
     },
@@ -35,8 +39,16 @@
       "source": "/robots.txt",
       "headers": [
         {
+          "key": "Content-Type",
+          "value": "text/plain"
+        },
+        {
           "key": "Cache-Control",
           "value": "public, max-age=86400"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
         }
       ]
     },
@@ -44,8 +56,16 @@
       "source": "/sitemap.xml",
       "headers": [
         {
+          "key": "Content-Type",
+          "value": "application/xml"
+        },
+        {
           "key": "Cache-Control", 
           "value": "public, max-age=86400"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
         }
       ]
     }

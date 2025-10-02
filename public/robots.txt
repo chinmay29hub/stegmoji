@@ -1,19 +1,72 @@
+# Allow all search engine bots to crawl the entire site
 User-agent: *
 Allow: /
 
-# Sitemap
+# Major search engines (verified names)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# International search engines (verified names)
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: NaverBot
+Allow: /
+
+User-agent: Seznambot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Social media and messaging bots (verified names)
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: DiscordBot
+Allow: /
+
+User-agent: SlackBot
+Allow: /
+
+# AI and content crawlers (verified names)
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Sitemap location
 Sitemap: https://chinmay29hub-stegmoji.vercel.app/sitemap.xml
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Disallow admin or private areas (if any)
-Disallow: /api/
-Disallow: /_next/
-Disallow: /admin/
-
-# Allow all main pages
-Allow: /encode
-Allow: /decode  
-Allow: /scan
-Allow: /about
+# Allow all pages - no restrictions needed since private directories are gitignored

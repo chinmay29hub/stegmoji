@@ -14,7 +14,7 @@ export const metadata = {
     template: '%s | Stegmoji'
   },
   description: 'Hide secret messages in plain text using invisible Unicode characters. Free online steganography tool with encryption, compression, and multiple embedding modes.',
-  keywords: ['steganography', 'unicode steganography', 'hide messages', 'invisible characters', 'text steganography', 'secret messages', 'encryption', 'privacy', 'security'],
+  keywords: ['steganography', 'unicode steganography', 'hide messages', 'invisible characters', 'text steganography', 'secret messages', 'encryption', 'privacy', 'security', 'free tool', 'online tool', 'global', 'worldwide', 'international', 'viral', 'trending', 'popular'],
   authors: [{ name: 'chinmay29hub' }],
   creator: 'chinmay29hub',
   publisher: 'Stegmoji',
@@ -103,6 +103,45 @@ export default function RootLayout({ children }) {
         <meta httpEquiv="X-Frame-Options" content="DENY" />
         <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+        
+        {/* Bot-friendly meta tags */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="slurp" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="duckduckbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="baiduspider" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="yandexbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="facebookexternalhit" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="twitterbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="linkedinbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="whatsapp" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="telegrambot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        
+        {/* Additional SEO meta tags for global reach */}
+        <meta name="language" content="en" />
+        <meta name="geo.region" content="global" />
+        <meta name="geo.placename" content="Worldwide" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        <meta name="revisit-after" content="weekly" />
+        <meta name="expires" content="never" />
+        <meta name="cache-control" content="public, max-age=31536000" />
+        
+        {/* Global targeting meta tags */}
+        <meta name="target-country" content="all" />
+        <meta name="audience" content="global" />
+        <meta name="coverage" content="worldwide" />
+        <meta name="geo.coverage" content="global" />
+        
+        {/* Multi-language support hints */}
+        <meta name="available-languages" content="en" />
+        <meta name="content-language" content="en" />
+        
+        {/* Viral content optimization */}
+        <meta name="content-type" content="tool,utility,steganography" />
+        <meta name="category" content="security,privacy,tools,technology" />
+        <meta name="keywords-global" content="steganography,unicode,privacy,security,encryption,hidden messages,text steganography,free tool,online tool,global" />
         
         {/* Performance hints */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
