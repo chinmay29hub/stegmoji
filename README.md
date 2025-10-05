@@ -1,5 +1,9 @@
 # Stegmoji 🔒
 
+<div align="center">
+  <img src="public/og-image.png" alt="Hide secret messages in plain text with Unicode steganography - Free online tool" />
+</div>
+
 A modern web application for Unicode steganography - hiding secret messages inside text using invisible Unicode characters.
 
 ## Features
