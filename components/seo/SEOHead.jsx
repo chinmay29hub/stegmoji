@@ -18,7 +18,7 @@ export default function SEOHead({
       <meta name="description" content={fullDescription} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content="Stegmoji" />
-      <meta name="robots" content="index, follow" />
+      {/* robots meta tag removed - should be handled by Next.js metadata API */}
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="#667eea" />
       
@@ -79,8 +79,7 @@ export default function SEOHead({
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       
-      {/* Additional SEO Meta Tags */}
-      <meta name="googlebot" content="index, follow" />
+      {/* Additional SEO Meta Tags - robots and googlebot handled by Next.js metadata API */}
       <meta name="bingbot" content="index, follow" />
       <meta name="language" content="English" />
       <meta name="revisit-after" content="7 days" />
