@@ -94,7 +94,11 @@ describe('ClientLayout', () => {
     const githubButton = screen.getByRole('button', { name: /github/i })
     fireEvent.click(githubButton)
     
-    expect(mockOpen).toHaveBeenCalledWith('https://github.com/chinmay29hub/stegmoji', '_blank')
+    expect(mockOpen).toHaveBeenCalledWith(
+      'https://github.com/chinmay29hub/stegmoji',
+      '_blank',
+      'noopener,noreferrer'
+    )
   })
 
   test('renders footer', () => {
@@ -104,6 +108,19 @@ describe('ClientLayout', () => {
       </ClientLayout>
     )
     expect(screen.getByText(/Made with/i)).toBeInTheDocument()
+  })
+
+  test('renders Diploi launch link in header', () => {
+    render(
+      <ClientLayout>
+        <div>Test content</div>
+      </ClientLayout>
+    )
+
+    const launchLink = screen.getByRole('link', { name: /launch stegmoji on diploi/i })
+    expect(launchLink).toHaveAttribute('href', 'https://diploi.com/launch/chinmay29hub/stegmoji')
+    expect(launchLink).toHaveAttribute('target', '_blank')
+    expect(launchLink).toHaveAttribute('rel', expect.stringContaining('noopener'))
   })
 
   test('handles theme toggle click', () => {

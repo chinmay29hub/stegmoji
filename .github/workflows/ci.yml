@@ -12,19 +12,22 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        # 24.x = current Active LTS, 22.x = Maintenance LTS
+        node-version: [22.x, 24.x]
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
 
     - name: Install pnpm
-      uses: pnpm/action-setup@v2
+      uses: pnpm/action-setup@v6
       with:
-        version: latest
+        # Pinned: `latest` pulled pnpm 11, which requires Node >= 22.13
+        # and broke the build on older Node versions.
+        version: 10
 
     - name: Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
@@ -48,17 +51,17 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
 
     - name: Install pnpm
-      uses: pnpm/action-setup@v2
+      uses: pnpm/action-setup@v6
       with:
-        version: latest
+        version: 10
 
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
-        node-version: '20.x'
+        node-version: '24.x'
         cache: 'pnpm'
 
     - name: Install dependencies

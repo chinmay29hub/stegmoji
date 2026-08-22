@@ -527,7 +527,46 @@ export default function AboutPage() {
         </motion.div>
 
 
-        <motion.div 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Deploy Your Own Instance</CardTitle>
+              <CardDescription>
+                Run your own copy of Stegmoji in one click
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Stegmoji is open source and needs no API keys, database, or environment
+                variables. Launch it on Diploi to get your own hosted instance with a
+                live preview URL, or fork the repository and deploy it anywhere that
+                supports Next.js.
+              </p>
+              <a
+                href="https://diploi.com/launch/chinmay29hub/stegmoji"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex"
+                aria-label="Launch Stegmoji on Diploi"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/diploi-launch.svg"
+                  alt="Launch with Diploi"
+                  width={292}
+                  height={64}
+                  className="h-auto w-full max-w-[292px]"
+                />
+              </a>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        <motion.div
           className="flex justify-center space-x-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

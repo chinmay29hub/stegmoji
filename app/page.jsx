@@ -11,49 +11,55 @@ export default function HomePage() {
   const [hiddenChars, setHiddenChars] = useState('')
   const [animationCycle, setAnimationCycle] = useState(0)
   
-  // Continuous animated text effect for steganography theme
+  // Continuous animated text effect for steganography theme.
+  // Bumping animationCycle re-runs this effect, which restarts the animation.
   useEffect(() => {
-    const visibleText = "Hello World! 👋"
-    const hiddenText = "🔒 Secret Message 🔒"
-    
-    const runAnimation = () => {
-      setVisibleChars('')
-      setHiddenChars('')
-      
-      let i = 0
-      const interval = setInterval(() => {
-        if (i < visibleText.length) {
-          setVisibleChars(visibleText.slice(0, i + 1))
-          i++
-        } else {
-          clearInterval(interval)
-          // Start showing hidden characters
-          setTimeout(() => {
-            let j = 0
-            const hiddenInterval = setInterval(() => {
-              if (j < hiddenText.length) {
-                setHiddenChars(hiddenText.slice(0, j + 1))
-                j++
-              } else {
-                clearInterval(hiddenInterval)
-                // Reset after showing for a while
-                setTimeout(() => {
-                  setAnimationCycle(prev => prev + 1)
-                }, 2000)
-              }
-            }, 100)
-          }, 1000)
-        }
-      }, 150)
+    // Split per character so emoji (surrogate pairs) are never cut in half
+    const visibleGlyphs = Array.from("Hello World! 👋")
+    const hiddenGlyphs = Array.from("🔒 Secret Message 🔒")
+
+    // Track every timer so cleanup can cancel all of them on unmount
+    const timers = new Set()
+    const track = (id) => {
+      timers.add(id)
+      return id
     }
-    
-    runAnimation()
-    
-    // Restart animation every 8 seconds
-    const restartInterval = setInterval(runAnimation, 8000)
-    
+
+    setVisibleChars('')
+    setHiddenChars('')
+
+    let i = 0
+    const typeVisible = track(setInterval(() => {
+      if (i < visibleGlyphs.length) {
+        setVisibleChars(visibleGlyphs.slice(0, i + 1).join(''))
+        i++
+        return
+      }
+
+      clearInterval(typeVisible)
+
+      // Start showing hidden characters
+      track(setTimeout(() => {
+        let j = 0
+        const typeHidden = track(setInterval(() => {
+          if (j < hiddenGlyphs.length) {
+            setHiddenChars(hiddenGlyphs.slice(0, j + 1).join(''))
+            j++
+            return
+          }
+
+          clearInterval(typeHidden)
+          // Reset after showing for a while
+          track(setTimeout(() => setAnimationCycle(prev => prev + 1), 2000))
+        }, 100))
+      }, 1000))
+    }, 150))
+
     return () => {
-      clearInterval(restartInterval)
+      timers.forEach((id) => {
+        clearTimeout(id)
+        clearInterval(id)
+      })
     }
   }, [animationCycle])
 

@@ -1,8 +1,22 @@
 # Stegmoji 🔒
 
 <div align="center">
-  <a href="https://www.producthunt.com/products/stegmoji?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-stegmoji" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1026962&theme=light&t=1760602846282" alt="Stegmoji - Hide&#0032;secret&#0032;messages&#0032;in&#0032;plain&#0032;text&#0032;using&#0032;invisible&#0032;Unicode&#0046; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-  <a href="https://diploi.com/launch/chinmay29hub/stegmoji" target="_blank"><img src="https://diploi.com/launch.svg" alt="Launch with Diploi" /></a>
+  <a href="https://github.com/chinmay29hub/stegmoji/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/chinmay29hub/stegmoji/ci.yml?branch=main&label=CI&logo=github" alt="CI status" /></a> &ensp;
+  <a href="https://chinmay29hub-stegmoji.vercel.app"><img src="https://img.shields.io/website?url=https%3A%2F%2Fchinmay29hub-stegmoji.vercel.app&label=live%20demo" alt="Live demo status" /></a> &ensp;
+  <img src="https://img.shields.io/badge/privacy-100%25%20client--side-8A2BE2" alt="All processing happens in your browser" /> &ensp;
+  <img src="https://img.shields.io/badge/Next.js-14-black?logo=next.js" alt="Built with Next.js 14" /> &ensp;
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/chinmay29hub/stegmoji?color=blue" alt="MIT license" /></a> &ensp;
+  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome" /></a> &ensp;
+  <a href="https://github.com/chinmay29hub/stegmoji/stargazers"><img src="https://img.shields.io/github/stars/chinmay29hub/stegmoji?logo=github" alt="GitHub stars" /></a> &ensp;
+  <a href="https://diploi.com/launch/chinmay29hub/stegmoji" target="_blank" rel="noopener"><img src="https://diploi.com/launch.svg" alt="Launch with Diploi" /></a>
+</div>
+
+<br>
+
+<div align="center">
+  <a href="https://www.producthunt.com/products/stegmoji?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-stegmoji" target="_blank" rel="noopener"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1026962&theme=light&t=1760602846282" alt="Stegmoji - Hide&#0032;secret&#0032;messages&#0032;in&#0032;plain&#0032;text&#0032;using&#0032;invisible&#0032;Unicode&#0046; | Product Hunt" width="250" height="54" /></a>
+  &emsp;&emsp;
+  <a href="https://diploi.com/launch/chinmay29hub/stegmoji" target="_blank" rel="noopener"><img src="https://diploi.com/launch-big.svg" alt="Launch with Diploi" width="246" height="54" /></a>
 </div>
 
 <br>
