@@ -3,7 +3,7 @@
   "buildCommand": "pnpm build",
   "devCommand": "pnpm dev",
   "installCommand": "pnpm install",
-  "ignoreCommand": "git diff --quiet HEAD~1 HEAD -- app/ components/ lib/ public/ package.json next.config.js tailwind.config.js postcss.config.js vercel.json .eslintrc.cjs .prettierrc",
+  "ignoreCommand": "git diff --quiet HEAD~1 HEAD -- app/ components/ lib/ public/ package.json pnpm-workspace.yaml next.config.js tailwind.config.js postcss.config.js vercel.json .eslintrc.cjs .prettierrc",
   "functions": {
     "app/sitemap.xml/route.js": {
       "maxDuration": 10
