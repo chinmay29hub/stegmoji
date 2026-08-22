@@ -2,6 +2,7 @@
 
 <div align="center">
   <a href="https://www.producthunt.com/products/stegmoji?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-stegmoji" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1026962&theme=light&t=1760602846282" alt="Stegmoji - Hide&#0032;secret&#0032;messages&#0032;in&#0032;plain&#0032;text&#0032;using&#0032;invisible&#0032;Unicode&#0046; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+  <a href="https://diploi.com/launch/chinmay29hub/stegmoji" target="_blank"><img src="https://diploi.com/launch.svg" alt="Launch with Diploi" /></a>
 </div>
 
 <br>
@@ -116,7 +117,19 @@ These characters are invisible and don't affect text rendering.
 
 ## Deployment
 
-### Deploy to Vercel
+### Option 1: Deploy with Diploi
+
+[![Launch with Diploi](https://diploi.com/launch-big.svg)](https://diploi.com/launch/chinmay29hub/stegmoji)
+
+1. **Launch the project**
+   Click the button above to create a new Diploi deployment of Stegmoji.
+
+2. **View the deployment**
+   Open the preview URL from your Diploi deployment page. No environment variables are required.
+
+For more information, visit [diploi.com](https://diploi.com).
+
+### Option 2: Deploy with Vercel
 
 1. **Push to GitHub**
    ```bash
